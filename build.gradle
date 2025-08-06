@@ -2,10 +2,10 @@ buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
-        jcenter()  // jcenter еще нужен для некоторых зависимостей ForgeGradle 4.x
+        jcenter()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:4.1+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:4.1.14'
     }
 }
 
@@ -25,11 +25,9 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
         }
-
         server {
             workingDirectory project.file('run')
         }
-
         data {
             workingDirectory project.file('run')
             args '--mod', 'scaredmobs', '--all', '--output', file('src/generated/resources/')
