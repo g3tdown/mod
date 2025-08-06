@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = 'https://maven.minecraftforge.net' }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:4.1+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+group = 'scared.mobs'
+version = '1.0'
+archivesBaseName = 'scaredmobs'
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            workingDirectory project.file('run')
+        }
+
+        data {
+            workingDirectory project.file('run')
+            args '--mod', 'scaredmobs', '--all', '--output', file('src/generated/resources/')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.minecraftforge.net/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
+}
