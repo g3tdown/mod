@@ -1,7 +1,8 @@
 buildscript {
     repositories {
-        jcenter()
         maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+        jcenter()  // jcenter еще нужен для некоторых зависимостей ForgeGradle 4.x
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:4.1+'
@@ -37,8 +38,9 @@ minecraft {
 }
 
 repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
     mavenCentral()
-    maven { url = 'https://maven.minecraftforge.net/' }
+    jcenter()
 }
 
 dependencies {
